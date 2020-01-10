@@ -1,0 +1,55 @@
+﻿<Window x:Class="DAOToSqliteConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DAOToSqliteConverter"
+        mc:Ignorable="d"
+        Title="Copy MSAccess to SQLite" Height="450" Width="800">
+    <Grid Background="{StaticResource BackgroundColor}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="5 5 5 0" >
+            <DockPanel>
+                <Label Width="110" Content="Access Mde" Style="{StaticResource NormalText}" 
+                       DockPanel.Dock="Left"
+                       HorizontalContentAlignment="Right"/>
+                <Button  Style="{StaticResource SmallButtonStyle}" 
+                         Name="btnLookupMDB"
+                         Click="btnLookupMDB_Click" Margin="5 0" 
+                         DockPanel.Dock="Right"
+                         ToolTip="Select Access database file.">
+                 <Image Style="{StaticResource SmallSearch}" />
+                </Button>
+                <TextBox Name="txtAccessDatabase" Style="{StaticResource NormalInputText}"/>
+            </DockPanel>
+            <DockPanel Margin="0">
+                <Label Width="110" Content="Access Table" Style="{StaticResource NormalText}" HorizontalContentAlignment="Right"/>
+                <ComboBox Name="cboTable"
+                            Margin="0 2" 
+                            Style="{StaticResource NormalInputText}"
+                            ItemsSource="{Binding Tables}"
+                            SelectedValue="{Binding SelectedTable}">
+                </ComboBox>
+            </DockPanel>
+            <DockPanel>
+                <Label Width="110" Content="Access Query" Style="{StaticResource NormalText}" HorizontalContentAlignment="Right"/>
+                <ComboBox Name="cboQuery"
+                        Margin="0 2" 
+                        Style="{StaticResource NormalInputText}"
+                        ItemsSource="{Binding Queries}"
+                        SelectedValue="{Binding SelectedQuery}">
+            </ComboBox>
+            </DockPanel>
+        </StackPanel>
+    </Grid>
+</Window>
